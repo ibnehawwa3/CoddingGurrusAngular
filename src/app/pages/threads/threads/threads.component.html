@@ -1,0 +1,26 @@
+<div class="main_threads_section_pages  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+    <div class="inner_mainPage  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 ">
+                    <div class="threads_side_ber  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                        <sideber></sideber>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-9">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-xl-10">
+                                <div class="main_thd  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                    <router-outlet></router-outlet>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

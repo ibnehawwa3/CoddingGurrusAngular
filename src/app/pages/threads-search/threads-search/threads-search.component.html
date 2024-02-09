@@ -1,0 +1,75 @@
+<div class="community_page {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+    <div class="inner_community_page_section">
+        <div class="community_header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3">
+
+                    </div>
+                    <div class="col-xl-6 col-md-6 col-12">
+                        <div class="inner_community_header {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <h2>Look into our community!!</h2>
+                            <p>If you are looking for a community to help you find solutions to your problems.<br>You can look into our community for more fresh mindsets and solutions.</p>
+                        </div>
+                        <div class="community_search_be {{ isNightMode ? 'night_mode' : 'day_mode' }}r">
+                            <div class="inner_community_search_ber {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                <span class="search_icons {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M22.6665 22.6667L27.9998 28" stroke="#212B36" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 14.6667C4 20.5577 8.77563 25.3333 14.6667 25.3333C17.6173 25.3333 20.2881 24.1353 22.2192 22.1991C24.1436 20.2696 25.3333 17.6071 25.3333 14.6667C25.3333 8.77563 20.5577 4 14.6667 4C8.77563 4 4 8.77563 4 14.6667Z" stroke="#212B36" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                                <input type="text" placeholder="Search">
+                                <button class="search_btns {{ isNightMode ? 'night_mode' : 'day_mode' }}" routerLink="/threads-results">
+                            Search
+                          </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xl-3 col-lg-3"></div>
+                </div>
+                <!-- next_row -->
+                <div class="row">
+                    <div class="col-xl-3  col-md-3 col-12 ">
+                        <div class="ads_section_areas {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <h4>AD</h4>
+                        </div>
+                    </div>
+                    <div class="col-xl-6  col-md-6 col-12">
+                        <div class="community_options">
+                            <topic-cat></topic-cat>
+                        </div>
+
+                        <div class="threads_body">
+                            <div class="threads_header {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                <h4>Popular Community Threads</h4>
+                            </div>
+                            <div class="threads_content {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                <app-threads-for-search routerLink="/single-thread"></app-threads-for-search>
+                                <app-threads-for-search routerLink="/single-thread"></app-threads-for-search>
+                                <app-threads-for-search routerLink="/single-thread"></app-threads-for-search>
+                                <app-threads-for-search routerLink="/single-thread"></app-threads-for-search>
+                                <!-- <search-threads></search-threads> -->
+                            </div>
+                        </div>
+                        <div class="view_more_threads {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <button>
+                    View more threads
+                  </button>
+                        </div>
+                    </div>
+                    <div class="col-xl-3  col-md-3 col-12">
+                        <div class="ads_section_areas {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <h4>AD</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- massive-community-body -->
+        <div class="massive-community-body {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+            <search-massive-community></search-massive-community>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,391 @@
+.tag_lines>h4 {
+    color: var(--text-primary, #212B36);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1;
+    /* 150% */
+    margin-bottom: 0;
+}
+
+.tag_lines {
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.inner_screen_shoot_boxs>img {
+    width: 100%;
+}
+
+.image_title>h4 {
+    color: var(--text-secondary, #637381);
+    text-align: center;
+    font-family: Satoshi;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1;
+    /* 150% */
+    margin-bottom: 0;
+}
+
+.image_title {
+    margin-top: 8px;
+}
+
+.screen_shoot_box {
+    margin-bottom: 32px;
+}
+
+span.pink_txt {
+    color: #CA02CA;
+    font-family: Inconsolata;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+span.orange_txt {
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    color: #D23200;
+    font-family: Inconsolata;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+span.black_txt {
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    color: var(--text-primary, #212B36);
+    font-family: Inconsolata;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+span.green_txt {
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    color: #00A76F;
+    font-family: Inconsolata;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+span.blue_txt {
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    color: #005EBC;
+    font-family: Inconsolata;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+span.black_dot {
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    color: var(--text-primary, #212B36);
+    font-family: Inconsolata;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+span.black_backet_txt {
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    color: var(--text-primary, #212B36);
+    font-family: Inconsolata;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+span.gray_txt {
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    color: #B4B7B4;
+    font-family: Inconsolata;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+span.dark_red_txt {
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    color: #BB0005;
+    font-family: Inconsolata;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+p.ml-15 {
+    margin-left: 15px;
+}
+
+.editor_main_code>p {
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.editor_import_section>p {
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+
+/* editor-areas */
+
+.main_editors {
+    display: flex;
+    /* height: 248px; */
+    padding: 20px 71.72px 20px 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    border-radius: 0px 0px 16px 16px;
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    background: var(--background-Paper2, #F4F6F8);
+}
+
+
+/*editors-headers*/
+
+.hd_right_boxs>ul {
+    list-style: none;
+    padding-left: 0px;
+    margin-bottom: 0;
+}
+
+.hd_right_boxs>ul>li {
+    display: inline-block;
+    margin: 0px 8px;
+}
+
+.inner_editor_headers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hd_left_boxs>span {
+    color: var(--text-primary, #212B36);
+    font-family: Satoshi;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    /* 155.556% */
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 16px 16px 0px 0px;
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    background: var(--background-Paper2, #F4F6F8);
+}
+
+.hd_right_boxs {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 16px 16px 0px 0px;
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    background: var(--background-Paper2, #F4F6F8);
+    height: 44px;
+}
+
+.editors_descriptions {
+    margin-top: 32px;
+}
+
+.artical_section_column>p {
+    color: var(--text-primary, #212B36);
+    font-family: Satoshi;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+}
+
+.faq_headers>h2 {
+    color: var(--text-primary, #212B36);
+    /* desktop/h4 */
+    font-family: Satoshi;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1;
+    /* 150% */
+    margin-bottom: 16px;
+}
+
+.faq_inner_question>h4 {
+    color: var(--dark-light-primary, #007867);
+    /* desktop/h6 */
+    font-family: Satoshi;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1;
+    /* 155.556% */
+    margin-bottom: 0;
+}
+
+.faq_item {
+    border-top: 2px solid var(--components-divider, rgba(145, 158, 171, 0.20));
+    opacity: var(--textfield-standard-input-small-pt, 1);
+}
+
+.faq_inner_question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.left_s_columns>ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+.left_s_columns>ul>li {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.inner_faq_share_option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left_s_columns>ul>li>a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary, #212B36);
+    font-family: Satoshi;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    /* 173.333% */
+}
+
+.left_s_columns>ul>li>a>span {
+    margin-right: 6px;
+}
+
+.left_s_columns.day_mode>ul>li>a>span>svg>path {
+    stroke: #fff;
+}
+
+.left_s_columns.day_mode>ul>li>a {
+    color: #fff !important;
+}
+
+.hd_left_boxs.day_mode>span {
+    background: #0F1318 !important;
+    color: #fff !important;
+}
+
+.hd_right_boxs.day_mode {
+    background: #0F1318;
+}
+
+.main_editors.day_mode {
+    background: #0F1318;
+}
+
+.main_editors.day_mode {
+    background: var(--background-Paper2, #0F1318);
+    opacity: var(--textfield-standard-input-small-pt, 1);
+}
+
+.header_left.day_mode>.hd_left_boxs.day_mode>span {
+    background: var(--background-Paper2, #0F1318);
+    opacity: var(--textfield-standard-input-small-pt, 1);
+    color: #fff;
+}
+
+.hd_right_boxs.day_mode {
+    background: #0f1318 !important;
+}
+
+.post_editor_description.day_mode>p {
+    color: #fff !important;
+}
+
+button.green_txt.day_mode {
+    color: var(--global-inherit-color, #212B36);
+}
+
+.post_submit.day_mode>ul>li>button.green_txt.day_mode>span>svg>path {
+    stroke: #212B36;
+}
+
+.post_submit.day_mode>ul>li>button {
+    border-radius: 500px;
+    background: var(--grey-8, rgba(145, 158, 171, 0.08)) !important;
+    color: #fff !important;
+}
+
+.post_submit.day_mode>ul>li>button>span>svg>path {
+    stroke: #ffffff;
+}
+
+.post_submit.day_mode>ul>li>button.green_txt.day_mode {
+    background: var(--dark-light-primary, #5BE49B) !important;
+    color: var(--global-inherit-color, #212B36) !important;
+}
+
+.hd_left_boxs.day_mode>span {
+    background: var(--background-Paper2, #0F1318) !important;
+    color: #fff !important;
+}
+
+.left_s_columns.day_mode>ul>li>a {
+    color: #fff !important;
+}
+
+.hd_left_boxs.day_mode>span {
+    background: #0F1318 !important;
+    color: #fff !important;
+}
+
+.hd_right_boxs.day_mode {
+    background: #0F1318;
+}
+
+.main_editors.day_mode {
+    background: #0F1318;
+}
+
+.editor_main_code.day_mode span.black_txt,
+span.black_txt {
+    color: #B4B7B4 !important;
+}
+
+.editor_main_code.day_mode span.light_orange_txt {
+    color: #FF5F06;
+}
+
+.img_admin_box.day_mode>.admin_contents>h3 {
+    color: #fff;
+}

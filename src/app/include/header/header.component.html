@@ -1,0 +1,178 @@
+<div class="main_header  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+    <div class="top_main_header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2 col-lg-2 col-3">
+                    <div class="site_logo {{ isNightMode ? 'night_mode' : 'day_mode' }}" routerLink="">
+                        <div class="inner_site_logo {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <img src="../../../assets/icons/logo.png" alt="" srcset="" class="day_logo {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <img src="../../../assets/icons/dark_logo.png" alt="" srcset="" class="night_logo {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6  col-lg-6 columns_none_for_mobile">
+                    <div class="main_menu_for_top {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                        <ul class="navigation">
+                            <li>
+                                <a routerLink="threads-search">Topics</a>
+                            </li>
+                            <li>
+                                <a routerLink="about-us">About Us</a>
+                            </li>
+                            <li>
+                                <a routerLink="contact-us">Contact Us</a>
+                            </li>
+                            <li>
+                                <a routerLink="community">Community</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4   col-lg-4 col-9">
+                    <div class="right_action_switch {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                        <ul>
+                            <li>
+                                <button class="search {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                  <span  class="day_sr {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                    <input type="search" id="search" placeholder="Search..." />
+                                    <img src="../../../assets/icons/search.png" alt="" srcset=""  class="day_search">
+                                  </span>
+                                  <span class="dark_sr {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                    <input type="search" id="search" placeholder="Search..." />
+                                    <img src="../../../assets/icons/dark_search.png" alt="" srcset="" class="dark_search">
+                                  </span>
+                                </button>
+                            </li>
+                            <li class="{{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                <button class="day_btn {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                  <input type="checkbox" [(ngModel)]="isNightMode" (click)="toggleNightMode()">
+                                  <span class="slider round"></span>
+                                <span class="light  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                  <img src="../../../assets/icons/light.png" alt="" srcset="">
+                                </span>
+                                <span class="noon  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                                  <img src="../../../assets/icons/dark-moon.png" alt="" srcset="">
+                                </span>
+                              </button>
+                            </li>
+                            <li class="mobile_none">
+                                <button class="register  {{ isNightMode ? 'night_mode' : 'day_mode' }}" routerLinkActive="active" routerLink="register">
+                                      Register
+                                </button>
+                            </li>
+                            <li class="mobile_none"><button class="login {{ isNightMode ? 'night_mode' : 'day_mode' }}" routerLinkActive="active" routerLink="login">Login</button></li>
+                            <li class="humber_ger_mob">
+                                <a (click)="mobile_menus()">
+                                    <span>
+                                  <i class="fa-solid fa-bars"></i>
+                                </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="boootm_topic_menu {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+        <div class="boootm_inner_topic_menu">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="full_men_topics_sections {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <div class="wrap_full_men_topics_sections">
+                                <owl-carousel-o [options]="customOptions">
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Trending</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">PHP</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Javascript</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">c++</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">c#</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Python</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Nodejs</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">DevOps</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Data Structures</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Machine Language</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Web Development</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Bootstrap</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"> <a routerLink="threads/my-threads" class="topic_link">CSS</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"> <a routerLink="threads/my-threads" class="topic_link"><a href="">HTML</a></a>
+                                    </ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Trending</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">PHP</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Javascript</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">c++</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">c#</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Python</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Nodejs</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">DevOps</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Data Structures</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Machine Language</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Web Development</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Bootstrap</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"> <a routerLink="threads/my-threads" class="topic_link">CSS</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"> <a routerLink="threads/my-threads" class="topic_link"><a href="">HTML</a></a>
+                                    </ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Trending</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">PHP</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Javascript</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">c++</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">c#</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Python</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Nodejs</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">DevOps</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Data Structures</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Machine Language</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Web Development</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"><a routerLink="threads/my-threads" class="topic_link">Bootstrap</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"> <a routerLink="threads/my-threads" class="topic_link">CSS</a></ng-template>
+                                    <ng-template carouselSlide class="menu-item"> <a routerLink="threads/my-threads" class="topic_link"><a href="">HTML</a></a>
+                                    </ng-template>
+                                </owl-carousel-o>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile_menus_wraper  {{ isNightMode ? 'night_mode' : 'day_mode' }}" *ngIf="this.show_menus">
+    <a class="close_link" (click)="close_btn()">
+        <span>
+        <i class="fa-solid fa-xmark"></i>
+      </span>
+    </a>
+    <div class="inner_mobile_menu_wrapers">
+        <div class="mobile_navigation">
+            <ul class="mob_navigation">
+                <li>
+                    <a routerLink="threads-search" (click)="close_btn()">Topics</a>
+                </li>
+                <li>
+                    <a routerLink="about-us" (click)="close_btn()">About Us</a>
+                </li>
+                <li>
+                    <a routerLink="contact-us" (click)="close_btn()">Contact Us</a>
+                </li>
+                <li>
+                    <a routerLink="community" (click)="close_btn()">Community</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right_action_switch mob_actions {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+        <ul>
+
+
+            <li class="">
+                <button routerLinkActive="active" class="register {{ isNightMode ? 'night_mode' : 'day_mode' }}" routerLink="register" (click)="close_btn()">
+                    Register
+              </button>
+            </li>
+            <li class=""><button routerLinkActive="active" class="login {{ isNightMode ? 'night_mode' : 'day_mode' }}" routerLink="login" (click)="close_btn()">Login</button></li>
+
+        </ul>
+    </div>
+</div>
