@@ -69,8 +69,8 @@
 
 .side_ber_inner_menus_list>ul>li>a.active {
     border-radius: 0px 500px 500px 0px;
-    background: var(--action-selected, rgba(145, 158, 171, 0.16));
-    color: var(--text-primary, #212B36) !important;
+    background-color: var(--action-selected, rgb(65 211 143));
+    color: var(--text-primary, #ffffff) !important;
     font-family: Satoshi;
     font-size: 16px;
     font-style: normal;
@@ -119,21 +119,33 @@
 }
 
 .side_ber_menu_options_list {
-    padding-right: 16px;
+    padding-right: 50px;
 }
 
 .side_header {
-    padding-right: 16px;
+    padding-right: 50px;
 }
 .side_header {
     padding-top: 20px;
 }
-
+.side_ber_inner_menus_list> ul > li> a {
+    border-radius: 0px 500px 500px 0px;
+    
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+}
+.side_ber_inner_menus_list> ul > li> a:hover {
+    background: var(--action-selected, rgba(145, 158, 171, 0.16));
+    /* background-color: var(--action-selected, rgb(65 211 143)); */
+    color: var(--text-primary, #212B36) !important;
+}
 /*dark*/
 
 .day_mode.side_ber_inner_menus_list>ul>li>a.active {
     border-radius: 0px 500px 500px 0px;
-    background: var(--action-selected, rgba(145, 158, 171, 0.16)) !important;
+    background-color: var(--action-selected, rgb(65 211 143)) !important;
     color: #fff !important;
 }
 
