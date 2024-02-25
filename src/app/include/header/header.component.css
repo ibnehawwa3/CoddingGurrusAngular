@@ -29,8 +29,6 @@ ul.navigation>li {
     cursor: pointer;
 }
 
-button.day_btn {}
-
 button.register {
     display: flex;
     height: 56px;
@@ -254,13 +252,13 @@ span.light.night_mode {
 }
 
 button.register.day_mode {
-    
-
     border-radius: 500px;
     border: 1px solid var(--components-button-outlined, rgba(145, 158, 171, 0.32));
     background: #161c24;
     color: white;
 }
+
+
 /* a.topic_link.actives {
     background: #008269 !important;
     color: white;
@@ -269,17 +267,20 @@ a.topic_link.actives:hover{
     background: #008269 !important;
     color: white;
 } */
+
 button.login.day_mode {
     border-radius: 500px;
     border: 1px solid var(--components-button-outlined, rgba(145, 158, 171, 0.32));
     background: #161c24;
     color: white;
 }
-button.day_mode.active{
+
+button.day_mode.active {
     border-radius: 500px;
     background: var(--global-inherit-bg, #FFF);
     color: var(--global-inherit-color, #161c24);
 }
+
 .full_men_topics_sections.day_mode>.wrap_full_men_topics_sections a.topic_link {
     color: #fff;
 }
@@ -474,18 +475,24 @@ span.dark_sr {
 span.day_sr {
     position: relative;
 }
+
+
 /*=========================hover=============================*/
-a.topic_link:hover,ul.navigation>li>a:hover {
+
+a.topic_link:hover,
+ul.navigation>li>a:hover {
     white-space: unset !important;
     background: var(--action-selected, rgb(65 211 143));
     display: block;
-    color:#fff;
+    color: #fff;
 }
 
-a.topic_link,ul.navigation>li>a {
+a.topic_link,
+ul.navigation>li>a {
     padding: 12px 10px;
     transition: 0.3s;
 }
+
 
 /*next-column*/
 
@@ -548,7 +555,18 @@ a.topic_link,ul.navigation>li>a {
 
 @media only screen and (max-width: 999px) and (min-width: 551px) {}
 
-@media only screen and (max-width: 1382px) and (min-width: 1000px) {}
+@media only screen and (max-width: 1382px) and (min-width: 950px) {
+    .right_action_switch>ul>li {
+        margin-left: 12px;
+    }
+    .right_action_switch>ul>li:first-child {
+        margin-left: 0px !important;
+    }
+    ul.navigation>li {
+        display: inline-block;
+        margin: 0px 10px;
+    }
+}
 
 @media only screen and (max-width: 1480px) and (min-width: 1000px) {}
 

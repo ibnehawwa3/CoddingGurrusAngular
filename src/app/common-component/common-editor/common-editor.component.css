@@ -389,3 +389,36 @@ span.black_txt {
 .img_admin_box.day_mode>.admin_contents>h3 {
     color: #fff;
 }
+
+span.copy_tool_tip {
+    display: none;
+    position: absolute;
+    background: #0f0f0f;
+    font-size: 10px;
+    color: white;
+    padding: 4px 8px;
+    right: -48px;
+    top: 50%;
+    border-radius: 6px;
+    transform: translateY(-50%);
+}
+
+.hd_right_boxs>ul>li {
+    position: relative;
+    cursor: pointer;
+}
+
+.hd_right_boxs>ul>li:hover>span.copy_tool_tip {
+    display: block;
+}
+
+span.copy_tool_tip::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #0f0f0f;
+    left: -4px;
+    top: 7px;
+    transform: rotate(45deg);
+}
