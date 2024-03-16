@@ -20,7 +20,7 @@
                         </div>
                         <div class="inner_contact_from   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                             <div class="contact_box   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                                <form action="">
+                                <form [formGroup]="loginForm" (ngSubmit)="login()">
                                     <div class="form_wraper   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                         <div class="form_row   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                             <div class="row">
@@ -29,7 +29,7 @@
                                                     <div class="input_box  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                                         <label for="" class="input_label   {{ isNightMode ? 'night_mode' : 'day_mode' }}">Email</label>
                                                         <div class="input_field   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                                                            <input type="" name="" />
+                                                            <input type="text" formControlName="username" placeholder="Username/Email" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -42,7 +42,7 @@
                                                     <div class="input_box   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                                         <label for="" class="input_label   {{ isNightMode ? 'night_mode' : 'day_mode' }}">Password</label>
                                                         <div class="input_field   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                                                            <input type="" name="" />
+                                                            <input type="password" formControlName="password" placeholder="Password">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -53,7 +53,7 @@
                                             <div class="row">
                                                 <div class="col-xl-12">
                                                     <div class="full_btn_aresa   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                                                        <button (click)="login()">Login</button>
+                                                        <button type="submit" [disabled]="loginForm.invalid">Login</button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CustomizeService } from '../../../customize/customize.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { HttpService } from '../../../shared/services/http-service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent {
   isNightMode = false;
-  constructor(private dataService: CustomizeService,private fb: FormBuilder, private http: HttpClient) {
+  constructor(private dataService: CustomizeService,private fb: FormBuilder, private httpService:HttpService) {
 
   }
   loginForm: FormGroup = new FormGroup({
@@ -35,14 +36,14 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const credentials = this.loginForm.value;
 
-      this.http.post<any>('https://api.example.com/login', credentials)
-        .subscribe(response => {
-          // Handle successful login
-          console.log('Login successful:', response);
-        }, error => {
-          // Handle login error
-          console.error('Login error:', error);
-        });
-    }
+      this.httpService.post<any>('login', credentials)
+      .subscribe(response => {
+        // Handle successful login
+        console.log('Login successful:', response);
+      }, error => {
+        // Handle login error
+        console.error('Login error:', error);
+      });
+  }
   }
 }
