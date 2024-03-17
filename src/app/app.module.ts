@@ -8,6 +8,7 @@ import { FooterComponent } from './include/footer/footer.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule, NgForm } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,8 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent
   ],
   imports: [
-    AppRoutingModule,CarouselModule,FormsModule,BrowserAnimationsModule,
-  ],
+    AppRoutingModule, CarouselModule, FormsModule, BrowserAnimationsModule, HttpClientModule  ],
   providers: [],
   bootstrap: [AppComponent]
 })

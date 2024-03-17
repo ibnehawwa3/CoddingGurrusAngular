@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CustomizeService } from '../../../customize/customize.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { HttpService } from '../../../shared/services/http-service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CommonService } from '../../../shared/services/common-service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ import { HttpService } from '../../../shared/services/http-service';
 })
 export class LoginComponent {
   isNightMode = false;
-  constructor(private dataService: CustomizeService,private fb: FormBuilder, private httpService:HttpService) {
+  constructor(private dataService: CustomizeService, private fb: FormBuilder, private httpService: HttpService, public commonService: CommonService) {
 
   }
   loginForm: FormGroup = new FormGroup({
@@ -35,15 +35,14 @@ export class LoginComponent {
   login() {
     if (this.loginForm.valid) {
       const credentials = this.loginForm.value;
-
-      this.httpService.post<any>('login', credentials)
-      .subscribe(response => {
-        // Handle successful login
-        console.log('Login successful:', response);
-      }, error => {
-        // Handle login error
-        console.error('Login error:', error);
-      });
+      
+      //this.httpService.post<any>(this.commonService.apiEndPoints.Login, credentials)
+      //.subscribe(response => {
+      //  console.log('Login successful:', response);
+      //}, error => {
+      //  // Handle login error
+      //  console.error('Login error:', error);
+      //});
   }
   }
 }
