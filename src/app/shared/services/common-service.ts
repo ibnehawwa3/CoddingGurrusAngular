@@ -49,7 +49,7 @@ export class CommonService {
 
 
   return new Promise<ApiResponse<T>>((resolve, reject) => {
-      this.httpService.delete<ApiResponse<T>>(apiUrl, id)
+      this.httpService.delete<ApiResponse<T>>(apiUrl)
           .subscribe(response => {
 
 

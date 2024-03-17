@@ -7,7 +7,8 @@ import { CommonService } from '../../../shared/services/common-service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
+  
 })
 export class LoginComponent {
   isNightMode = false;
@@ -34,15 +35,20 @@ export class LoginComponent {
   }
   login() {
     if (this.loginForm.valid) {
+      console.log('Login cre valid:');
+
       const credentials = this.loginForm.value;
       
-      //this.httpService.post<any>(this.commonService.apiEndPoints.Login, credentials)
-      //.subscribe(response => {
-      //  console.log('Login successful:', response);
-      //}, error => {
-      //  // Handle login error
-      //  console.error('Login error:', error);
-      //});
+      this.httpService.post<any>(this.commonService.apiEndPoints.Login, credentials)
+      .subscribe(response => {
+       console.log('Login successful:', response);
+      }, error => {
+       // Handle login error
+       console.error('Login error:', error);
+      });
+  }else{
+    console.log('Login cre invalid:');
+
   }
   }
 }
