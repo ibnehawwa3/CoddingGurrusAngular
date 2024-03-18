@@ -1,5 +1,6 @@
 export let ApiEndPoints = {
   Login: 'account/login',
+  Register: 'account/register',
   Category: 'Category',
   UserAccount: 'UserAccount/Login',
   UserRegister: 'UserAccount',

@@ -19,11 +19,7 @@ export class LoginComponent {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
-    // ngOnInit() {
-  //   let storedNightMode = localStorage.getItem('nightMode');
-  //   this.isNightMode = storedNightMode ? JSON.parse(storedNightMode) : false;
-  //   alert(storedNightMode )
-  // }
+ 
   ngOnInit(): void {
     this.dataService.currentMessage.subscribe((res) => {
       this.isNightMode = res;
@@ -43,7 +39,7 @@ export class LoginComponent {
       .subscribe(response => {
        console.log('Login successful:', response);
       }, error => {
-       // Handle login error
+       // Handle login errorng
        console.error('Login error:', error);
       });
   }else{
