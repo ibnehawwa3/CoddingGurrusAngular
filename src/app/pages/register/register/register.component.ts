@@ -3,6 +3,8 @@ import { CustomizeService } from '../../../customize/customize.service';
 import { HttpService } from '../../../shared/services/http-service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '../../../shared/services/common-service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +12,7 @@ import { CommonService } from '../../../shared/services/common-service';
 })
 export class RegisterComponent {
   isNightMode = false;
-  constructor(private dataService: CustomizeService, private fb: FormBuilder, private httpService: HttpService, public commonService: CommonService) {
+  constructor(private dataService: CustomizeService,private router:Router, public fb: FormBuilder,private loader:NgxSpinnerService, private httpService: HttpService, public commonService: CommonService) {
 
   }
   registerForm: FormGroup = new FormGroup({
@@ -23,23 +25,27 @@ export class RegisterComponent {
     this.dataService.currentMessage.subscribe((res) => {
       this.isNightMode = res;
       this.registerForm = this.fb.group({
-        fullname: ['', Validators.required],
-        username: ['', Validators.required],
+        firstname: ['', Validators.required],
+        email: ['', Validators.required],
         password: ['', Validators.required]
       });
     });
   }
   register() {
-    if (this.registerForm.valid) {
+    this.loader.show();
 
-      const credentials = this.registerForm.value;
-      
-      this.httpService.post<any>(this.commonService.apiEndPoints.Register, credentials)
+    if (this.registerForm.valid) {
+      this.httpService.post<any>(this.commonService.apiEndPoints.Register, this.registerForm.value)
       .subscribe(response => {
        console.log('Register successful:', response);
+       this.loader.hide();
+       this.router.navigate(['/login']);
+
       }, error => {
        // Handle login errorng
        console.error('Register error:', error);
+       this.loader.hide();
+
       });
   }else{
 

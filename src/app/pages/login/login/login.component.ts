@@ -3,6 +3,9 @@ import { CustomizeService } from '../../../customize/customize.service';
 import { HttpService } from '../../../shared/services/http-service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '../../../shared/services/common-service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiResponse } from '../../../shared/interfaces/response';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +15,11 @@ import { CommonService } from '../../../shared/services/common-service';
 })
 export class LoginComponent {
   isNightMode = false;
-  constructor(private dataService: CustomizeService, private fb: FormBuilder, private httpService: HttpService, public commonService: CommonService) {
+  constructor(private dataService: CustomizeService,private router:Router, private fb: FormBuilder,private loader:NgxSpinnerService, private httpService: HttpService, public commonService: CommonService) {
 
   }
   loginForm: FormGroup = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
  
@@ -24,26 +27,25 @@ export class LoginComponent {
     this.dataService.currentMessage.subscribe((res) => {
       this.isNightMode = res;
       this.loginForm = this.fb.group({
-        username: ['', Validators.required],
+        email: ['', Validators.required],
         password: ['', Validators.required]
       });
     });
   }
   login() {
+    this.loader.show();
     if (this.loginForm.valid) {
-      console.log('Login cre valid:');
+      this.httpService.post<any>(this.commonService.apiEndPoints.Login, this.loginForm.value)
+      .subscribe( response => {
+       this.loader.hide();
+       this.router.navigate(['/']);
 
-      const credentials = this.loginForm.value;
-      
-      this.httpService.post<any>(this.commonService.apiEndPoints.Login, credentials)
-      .subscribe(response => {
-       console.log('Login successful:', response);
       }, error => {
        // Handle login errorng
-       console.error('Login error:', error);
+       this.loader.hide();
+
       });
   }else{
-    console.log('Login cre invalid:');
 
   }
   }

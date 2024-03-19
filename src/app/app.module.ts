@@ -12,6 +12,7 @@ import { CommonService } from './shared/services/common-service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -23,7 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent
   ],
   imports: [
-    AppRoutingModule, CarouselModule, FormsModule, BrowserAnimationsModule, HttpClientModule,ToastrModule.forRoot() ,TranslateModule.forRoot({
+    AppRoutingModule,  NgxSpinnerModule, CarouselModule, FormsModule, BrowserAnimationsModule, HttpClientModule,ToastrModule.forRoot() ,TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

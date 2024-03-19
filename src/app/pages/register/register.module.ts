@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -13,8 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    RegisterComponent,
-    ReactiveFormsModule, HttpClientModule,RegisterRoutingModule
+    ReactiveFormsModule, HttpClientModule,RegisterRoutingModule,FormsModule
   ]
 })
 export class RegisterModule { }
