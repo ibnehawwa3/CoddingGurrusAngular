@@ -43,8 +43,10 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.loader.show();
       this.httpService.post<ApiResponse<any>>(this.commonService.apiEndPoints.Login, this.loginForm.value).subscribe(response=>{
-        debugger
-        if(response.status==ResponseStatus.Success){
+       console.log(response)
+       console.log(response.success)
+
+        if(response.success==true){
           this.loader.hide();
           this.router.navigate(['/']);
         }

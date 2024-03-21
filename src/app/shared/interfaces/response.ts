@@ -1,6 +1,11 @@
+// export interface BaseResponse {
+//   message: string;
+//   status: ResponseStatus;
+// }
 export interface BaseResponse {
-  message: string;
-  status: ResponseStatus;
+  errorMessage: string;
+  data: any;
+  success:boolean;
 }
 export interface ApiResponse<T> extends BaseResponse {
   data: T;

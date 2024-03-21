@@ -5,8 +5,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { CommonService } from '../../../shared/services/common-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
-import { ApiResponse } from '../../../shared/interfaces/response';
-import { ResponseStatus } from '../../../shared/enum/enums';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -14,7 +12,7 @@ import { ResponseStatus } from '../../../shared/enum/enums';
 })
 export class RegisterComponent {
   isNightMode = false;
-  constructor(private dataService: CustomizeService,private router:Router, public fb: FormBuilder,private loader:NgxSpinnerService,public commonService: CommonService) {
+  constructor(private dataService: CustomizeService,private router:Router, public fb: FormBuilder,private loader:NgxSpinnerService, private httpService: HttpService, public commonService: CommonService) {
 
   }
   registerForm: FormGroup = new FormGroup({
@@ -34,17 +32,23 @@ export class RegisterComponent {
     });
   }
   register() {
+    this.loader.show();
 
     if (this.registerForm.valid) {
-      this.loader.show();
-      var response = this.commonService.Add<ApiResponse<any>>(this.commonService.apiEndPoints.Register, this.registerForm.value);
-      if(response.status==ResponseStatus.Success){
-        this.loader.hide();
-        this.router.navigate(['/login']);
-      }
-    }else{
-     this.loader.hide();
-     this.registerForm.markAllAsTouched();
-   }
+      this.httpService.post<any>(this.commonService.apiEndPoints.Register, this.registerForm.value)
+      .subscribe(response => {
+       console.log('Register successful:', response);
+       this.loader.hide();
+       this.router.navigate(['/login']);
+
+      }, error => {
+       // Handle login errorng
+       console.error('Register error:', error);
+       this.loader.hide();
+
+      });
+  }else{
+
+  }
   }
 }

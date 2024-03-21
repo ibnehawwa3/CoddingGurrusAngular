@@ -25,7 +25,7 @@ export class CommonService {
     this.spinnerService.show();
     this.httpService.put<ApiResponse<T>>(apiUrl, data).subscribe(response => {
       if (response.data) {
-        if (response.status == ResponseStatus.Success) {
+        if (response.success == true) {
           this.translate.get('DataUpdatedSuccess').subscribe((translatedValue: string) => {
             this.toasterService.success("", translatedValue);
           });
@@ -116,7 +116,7 @@ export class CommonService {
    this.httpService.post<ApiResponse<T>>(apiUrl, data).subscribe(response => {
       if (response.data) {
 debugger
-        if (response.status == ResponseStatus.Success) {
+        if (response.success == true) {
           this.toasterService.success("", "Date has been saved sucssesfully");
           this.spinnerService.hide();
           this.routerService.navigate([navigateUrl]);
