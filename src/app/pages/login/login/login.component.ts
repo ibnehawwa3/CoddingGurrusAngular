@@ -6,6 +6,7 @@ import { CommonService } from '../../../shared/services/common-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiResponse } from '../../../shared/interfaces/response';
 import { Router, RouterLink } from '@angular/router';
+import { ResponseStatus } from '../../../shared/enum/enums';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class LoginComponent {
   isNightMode = false;
-  constructor(private dataService: CustomizeService,private router:Router, private fb: FormBuilder,private loader:NgxSpinnerService, private httpService: HttpService, public commonService: CommonService) {
+  isValid=true;
+  constructor(private dataService: CustomizeService,private router:Router, private fb: FormBuilder,
+    private loader:NgxSpinnerService, private httpService: HttpService, public commonService: CommonService) {
 
   }
   loginForm: FormGroup = new FormGroup({
@@ -33,15 +36,23 @@ export class LoginComponent {
     });
   }
   login() {
-    this.loader.show();
+    if(this.loginForm.invalid){
+      this.loginForm.markAllAsTouched();
+    }
+    
     if (this.loginForm.valid) {
-      this.httpService.post<any>(this.commonService.apiEndPoints.Login, this.loginForm.value)
-      .subscribe( response => {
-       this.loader.hide();
-       this.router.navigate(['/']);
-
+      this.loader.show();
+      this.httpService.post<ApiResponse<any>>(this.commonService.apiEndPoints.Login, this.loginForm.value).subscribe(response=>{
+        debugger
+        if(response.status==ResponseStatus.Success){
+          this.loader.hide();
+          this.router.navigate(['/']);
+        }
+        else{
+          this.loader.hide();
+          this.isValid=false;
+        }
       }, error => {
-       // Handle login errorng
        this.loader.hide();
 
       });

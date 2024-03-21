@@ -3,7 +3,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-md-2">
-
                 </div>
                 <div class="col-xl-6 col-md-8">
                     <div class="contact_from login_from   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
@@ -18,6 +17,7 @@
                                 </div>
                             </div>
                         </div>
+                        <p *ngIf="!isValid" class="alert alert-danger">Invalid username or password</p>
                         <div class="inner_contact_from   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                             <div class="contact_box   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                 <form [formGroup]="loginForm" (ngSubmit)="login()">

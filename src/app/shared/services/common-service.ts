@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from './http-service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { ApiResponse } from '../interfaces/response';
+import { ApiResponse, ApiResponseArray } from '../interfaces/response';
 import { AppRoutes } from '../routes/AppRoutes';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiEndPoints } from '../routes/ApiEndpoints';
@@ -112,13 +112,12 @@ export class CommonService {
 
   public Add<T>(apiUrl: string, data: any, navigateUrl?: string | null, navigateParams?: any, messageKey?: string | null, saveMsg = false, pageUrl = ""): ApiResponse<T> {
     this.spinnerService.show();
+    debugger
    this.httpService.post<ApiResponse<T>>(apiUrl, data).subscribe(response => {
       if (response.data) {
-
+debugger
         if (response.status == ResponseStatus.Success) {
-          this.translate.get('DataSaved').subscribe((translatedValue: string) => {
-            this.toasterService.success("", translatedValue);
-          });
+          this.toasterService.success("", "Date has been saved sucssesfully");
           this.spinnerService.hide();
           this.routerService.navigate([navigateUrl]);
         }
@@ -126,9 +125,7 @@ export class CommonService {
       }
       else {
         this.spinnerService.hide();
-        this.translate.get('DataSavedFailed').subscribe((translatedValue: string) => {
-          this.toasterService.error("", translatedValue);
-        });
+        this.toasterService.error("", "Unable to save data please try again");
         return response
       }
     });
@@ -139,34 +136,34 @@ export class CommonService {
     this.routerService.navigateByUrl(route);
   }
 
-  //public getById<T>(apiUrl: string, id: number): Promise<ApiResponse<T>> {
-  //    this.spinnerService.show();
-  //    //return new Promise<ApiResponse<T>>((resolve, reject) => {
-  //    //    this.httpService.getById<ApiResponse<T>>(apiUrl, id)
-  //    //        .subscribe(response => {
-  //    //            this.spinnerService.hide();
-  //    //            resolve(response);
-  //    //        }, error => {
-  //    //            this.spinnerService.hide();
-  //    //            reject(error);
-  //    //        });
-  //    //});
-  //}
+  public getById<T>(apiUrl: string, id: number): Promise<ApiResponse<T>> {
+     this.spinnerService.show();
+     return new Promise<ApiResponse<T>>((resolve, reject) => {
+        // this.httpService.getById<ApiResponse<T>>(apiUrl, id)
+        //     .subscribe(response => {
+        //         this.spinnerService.hide();
+        //         resolve(response);
+        //     }, error => {
+        //         this.spinnerService.hide();
+        //         reject(error);
+        //     });
+     });
+  }
 
 
-  //public Get<T>(apiUrl: string, showLoader?: boolean | undefined, token?: string | undefined): Promise<ApiResponseArray<T>> {
-  //    this.spinnerService.show();
+  public Get<T>(apiUrl: string, showLoader?: boolean | undefined, token?: string | undefined): Promise<ApiResponseArray<T>> {
+     this.spinnerService.show();
 
-  //    //return new Promise<ApiResponseArray<T>>((resolve, reject) => {
-  //    //    this.httpService.get<ApiResponseArray<T>>(apiUrl)
-  //    //        .subscribe(response => {
+     return new Promise<ApiResponseArray<T>>((resolve, reject) => {
+        this.httpService.get<ApiResponseArray<T>>(apiUrl)
+            .subscribe(response => {
 
-  //    //            this.spinnerService.hide();
-  //    //            resolve(response);
-  //    //        }, error => {
-  //    //            this.spinnerService.hide();
-  //    //            reject(error);
-  //    //        });
-  //    //});
-  //}
+                this.spinnerService.hide();
+                resolve(response);
+            }, error => {
+                this.spinnerService.hide();
+                reject(error);
+            });
+     });
+  }
 }
