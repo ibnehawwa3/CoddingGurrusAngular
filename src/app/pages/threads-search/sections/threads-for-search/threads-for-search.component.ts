@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CustomizeService } from '../../../../customize/customize.service';
+import { CommonService } from '../../../../shared/services/common-service';
+import { ListeningParameter } from '../../../../shared/interfaces/response';
+import { ITopicCount } from '../../IThread';
 
 @Component({
   selector: 'app-threads-for-search',
@@ -8,18 +11,28 @@ import { CustomizeService } from '../../../../customize/customize.service';
 })
 export class ThreadsForSearchComponent {
   isNightMode = false;
-  constructor(private dataService: CustomizeService) {
+  topics:any[]=[];
+  constructor(private dataService: CustomizeService, public commonService: CommonService) {
 
   }
-  // ngOnInit() {
-  //   let storedNightMode = localStorage.getItem('nightMode');
-  //   this.isNightMode = storedNightMode ? JSON.parse(storedNightMode) : false;
-  //   alert(storedNightMode )
-  // }
+  
   ngOnInit(): void {
     this.dataService.currentMessage.subscribe((res) => {
       this.isNightMode = res;
       console.log(this.isNightMode)
+    });
+    this.papolateThreadSearch()
+ 
+  }
+  papolateThreadSearch()
+  {
+    this.commonService._defaultSkip++;
+    this.commonService.Get<any>(this.commonService.apiEndPoints.TopicList + `?take=${this.commonService._defaultTake}&skip=${this.commonService._defaultSkip}&selilizationNeeded=${false}`)
+    .then(response => {
+     this.topics.push(...response.data)
+    })
+    .catch(error => {
+    
     });
   }
 }

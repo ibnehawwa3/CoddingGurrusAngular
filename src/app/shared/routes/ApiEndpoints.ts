@@ -1,9 +1,9 @@
 export let ApiEndPoints = {
   Login: 'account/login',
   Register: 'account/register',
-  Category: 'Category',
-  UserAccount: 'UserAccount/Login',
-  UserRegister: 'UserAccount',
+  Contentlist: 'Content/list',
+  CourseListForSlider: 'WebCourse/course-list-for-slider',
+  TopicList: 'Topic/list',
   ForgetPassword: 'UserAccount/Send-Email',
   ResetPassword: 'UserAccount/Reset',
   Sectors: 'Sectors',

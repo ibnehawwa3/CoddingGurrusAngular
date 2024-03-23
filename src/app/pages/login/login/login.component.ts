@@ -45,8 +45,8 @@ export class LoginComponent {
       this.httpService.post<ApiResponse<any>>(this.commonService.apiEndPoints.Login, this.loginForm.value).subscribe(response=>{
        console.log(response)
        console.log(response.success)
-
         if(response.success==true){
+          this.commonService.storeToken(response.data.auth_token);
           this.loader.hide();
           this.router.navigate(['/']);
         }

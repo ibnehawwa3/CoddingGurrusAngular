@@ -46,15 +46,13 @@
                                 <h4>Popular Community Threads</h4>
                             </div>
                             <div class="threads_content {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                                <app-threads-for-search routerLink="/single-thread"></app-threads-for-search>
-                                <app-threads-for-search routerLink="/single-thread"></app-threads-for-search>
-                                <app-threads-for-search routerLink="/single-thread"></app-threads-for-search>
-                                <app-threads-for-search routerLink="/single-thread"></app-threads-for-search>
+                                <app-threads-for-search  routerLink="/single-thread"></app-threads-for-search>
+                               
                                 <!-- <search-threads></search-threads> -->
                             </div>
                         </div>
                         <div class="view_more_threads {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                            <button>
+                            <button (click)="byViewMoreClick()">
                     View more threads
                   </button>
                         </div>

@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CustomizeService } from '../../customize/customize.service';
+import { CommonService } from '../../shared/services/common-service';
+import { ListeningParameter } from '../../shared/interfaces/response';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,12 +10,13 @@ import { CustomizeService } from '../../customize/customize.service';
 })
 export class HeaderComponent {
   @Output() nightModeChanged = new EventEmitter<boolean>();
-  constructor(private dataService: CustomizeService) {
+  constructor(private dataService: CustomizeService, public commonService: CommonService) {
     const storedNightMode = localStorage.getItem('nightMode');
     this.isNightMode = storedNightMode ? JSON.parse(storedNightMode) : false;
   }
   isNightMode = false;
-
+  courseList:any;
+  listeningParameter: ListeningParameter={} as ListeningParameter;
   toggleNightMode() {
     this.isNightMode = !this.isNightMode;
     // this.nightModeChanged.emit(this.isNightMode);
@@ -22,6 +25,14 @@ export class HeaderComponent {
   }
   ngOnInit() {
     this.toggleNightMode();
+    this.commonService.Get<any>(this.commonService.apiEndPoints.CourseListForSlider + `?take=${10}&skip=${1}`)
+   .then(response => {
+this.courseList = response.data;
+})
+.catch(error => {
+console.error(error);
+// Handle error gracefully
+});
   }
 
   // id:any = 'grabbedblocks';
@@ -38,7 +49,7 @@ export class HeaderComponent {
     touchDrag: false,
     pullDrag: false,
     dots: false,
-    items: 42, // Default number of items
+    items: 20, // Default number of items
     autoWidth: false,
     lazyLoad: false,
     navSpeed: 700,
@@ -52,16 +63,16 @@ export class HeaderComponent {
         items: 10,
       },
       400: {
-        items: 20,
+        items: 10,
       },
       740: {
-        items: 35,
+        items: 10,
       },
       940: {
-        items: 40,
+        items: 10,
       },
       1300: {
-        items: 40,
+        items: 10,
       },
     },
 

@@ -19,3 +19,13 @@ enum ResponseStatus {
   BadRequest = 400,
   NotFound = 404,
 }
+export interface ListeningParameter {
+  textToSearch?: string;
+  sortColumn?: string;
+  skip: number;
+  take: number;
+  pageSize:number;
+  pageNo:number;
+  sortOrder: string;
+  selectedIds?: number[] | null;
+}

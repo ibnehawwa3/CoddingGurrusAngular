@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from './http-service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { ApiResponse, ApiResponseArray } from '../interfaces/response';
+import { ApiResponse, ApiResponseArray, ListeningParameter } from '../interfaces/response';
 import { AppRoutes } from '../routes/AppRoutes';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiEndPoints } from '../routes/ApiEndpoints';
@@ -15,6 +15,10 @@ import { ToastrService } from 'ngx-toastr';
 
 export class CommonService {
   apiEndPoints = ApiEndPoints;
+  listeningParameter: ListeningParameter={} as ListeningParameter;
+  _defaultSkip=1;
+  _defaultTake=10;
+
   appRoutes = AppRoutes;
   constructor(public routerService: Router, public spinnerService: NgxSpinnerService, public httpService: HttpService, public translate: TranslateService
     , public toasterService: ToastrService) {

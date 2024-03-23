@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CustomizeService } from '../../../customize/customize.service';
+import { ThreadsForSearchComponent } from '../sections/threads-for-search/threads-for-search.component';
 
 @Component({
   selector: 'app-threads-search',
@@ -8,6 +9,7 @@ import { CustomizeService } from '../../../customize/customize.service';
 })
 export class ThreadsSearchComponent {
   isNightMode = false;
+  @ViewChild(ThreadsForSearchComponent) threadsForSearchComponent: ThreadsForSearchComponent;
   constructor(private dataService: CustomizeService) {
 
   }
@@ -21,10 +23,10 @@ export class ThreadsSearchComponent {
       this.isNightMode = res;
       console.log(this.isNightMode)
     });
-
-   // location.reload()
-
-
-
+  }
+  
+  byViewMoreClick()
+  {
+   this.threadsForSearchComponent.papolateThreadSearch();
   }
 }

@@ -1,16 +1,16 @@
-<div class="threads  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+<div *ngFor="let itm of topics" class="threads  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
     <div class="threads_inner_container  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-        <div class="threads_inner_header {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-            <h4>Replacing the laravel authentication with a custom authentication</h4>
+        <div  class="threads_inner_header {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+            <h4>{{itm.title}}</h4>
             <div class="threads_language  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                 <div class="threads_language_list  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                    <ul>
-                        <li>
+                    <ul >
+                        <li *ngFor="let subitem of itm.tags?.split(',')">
                             <a href="" class="green  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                                <span>DSA</span>
+                                <span>{{subitem}}</span>
                             </a>
-                        </li>
-                        <li>
+                        </li> 
+                        <!-- <li>
                             <a href="" class="pink  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                 <span>Algorithms</span>
                             </a>
@@ -19,15 +19,14 @@
                             <a href="" class="blue  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                 <span>PHP</span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
         </div>
         <div class="threads_content  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
             <p>
-                Replacing the laravel authentication with a custom authentication. I had built my laravel project and then had a task to replace the larevel default authentication with a custom authentication moduleI could not find any post that could help me fix this
-                issue and had to refer to many articles . There fore i decided to make a post on how this could be done So as to help any one else facing the similar issue.
+              {{itm.description}}
             </p>
         </div>
         <div class="threads_details  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
