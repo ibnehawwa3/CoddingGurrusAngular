@@ -3,6 +3,7 @@ import { CustomizeService } from '../../../customize/customize.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonService } from '../../../shared/services/common-service';
 
+
 @Component({
   selector: 'app-course-details',
   templateUrl: './course-details.component.html',
@@ -11,7 +12,7 @@ import { CommonService } from '../../../shared/services/common-service';
 export class CourseDetailsComponent {
   isNightMode = false;
   courseId :any;
-  public topics:any[]=[];
+  public topics:any[];
   constructor(private dataService: CustomizeService,private route: ActivatedRoute,public commonService:CommonService) {
 
   }
@@ -21,12 +22,11 @@ export class CourseDetailsComponent {
   //   alert(storedNightMode )
   // }
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.courseId = params['id']; // Assuming the query parameter name is 'id'
-      console.log("courseid:", this.courseId);
-    });
 
-    this.papolateThreadSearch();
+    this.route.paramMap.subscribe(params => {
+      this.courseId = params.get('id');
+      this.papolateTopics();
+    });
 
     this.dataService.currentMessage.subscribe((res) => {
       this.isNightMode = res;
@@ -34,16 +34,29 @@ export class CourseDetailsComponent {
     });
   }
 
-  papolateThreadSearch()
+  papolateTopics()
   {
-    this.commonService._defaultSkip++;
-    this.commonService.Get<any>(this.commonService.apiEndPoints.TopicList + `?take=${this.commonService._defaultTake}&skip=${this.commonService._defaultSkip}&selilizationNeeded=${false}`)
+    this.commonService.Get<any>(this.commonService.apiEndPoints.TopicList + `?courseId=${this.courseId}`)
     .then(response => {
-      debugger
-     this.topics.push(...response.data)
+        if(response.data && response.data.length > 0)
+           this.topics=response.data[0].topics;
+        else
+        this.topics=[];
     })
     .catch(error => {
-    
+    });
+  }
+
+  populateContent(topicId:any){
+    debugger
+    this.commonService.Get<any>(this.commonService.apiEndPoints.ContentByCourse + `?topicId=${topicId}`)
+    .then(response => {
+        if(response.data && response.data.length > 0)
+           this.topics=response.data[0].topics;
+        else
+        this.topics=[];
+    })
+    .catch(error => {
     });
   }
 }

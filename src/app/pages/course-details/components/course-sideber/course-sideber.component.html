@@ -16,39 +16,21 @@
         </div>
         <div class="side_ber_menu_options_list   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
             <div class="side_ber_inner_menus_list   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                <ul *ngFor="let topic of topics">
+                <ul *ngFor="let topic of topics; let i = index">
                     <li>
-                        <a href="" class="active   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                        <a href="" [class]="i === 0 ? 'active' : ''" [ngClass]="isNightMode ? 'night_mode' : 'day_mode'" (click)="byTopicSelect(topic.id)">
                         {{topic.title}}
                       </a>
                     </li>
-                    <!-- <li>
-                        <a href="">
-                        Array Data Structure
-                      </a>
-                    </li>
-                    <li>
-                        <a href="">String Data Structure</a>
-                    </li>
-                    <li>
-                        <a href="">Linked List Data Structure</a>
-                    </li>
-                    <li>
-                        <a href="">Stack Data Structure</a>
-                    </li>
-                    <li>
-                        <a href="">Queue Data Structure</a>
-                    </li>
-                    <li>
-                        <a href="">Tree Data Structure</a>
-                    </li>
-                    <li>
-                        <a href="">Heap Data Structure</a>
-                    </li>
-                    <li>
-                        <a href="">Matrix Data Structure</a>
-                    </li> -->
                 </ul>
+
+
+                <!-- <ul>
+                    <li *ngFor="let topic of topics; let i = index" [class.active]="i === 0" [class.night_mode]="isNightMode" [class.day_mode]="!isNightMode">
+                        <a href="">{{topic.title}}</a>
+                    </li>
+                </ul> -->
+
             </div>
         </div>
     </div>

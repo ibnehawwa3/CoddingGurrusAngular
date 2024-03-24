@@ -72,7 +72,6 @@ export class CommonService {
           });
   });
   }
- nhy v 
   setUserInformation(userName: string, themeType: string, IsSuperUser: boolean) {
     localStorage.setItem('userName', userName)
     localStorage.setItem('themeType', themeType)

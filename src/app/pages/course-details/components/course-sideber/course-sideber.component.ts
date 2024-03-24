@@ -1,10 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CustomizeService } from '../../../../customize/customize.service';
-import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
-import { NgxSpinnerService } from 'ngx-spinner';
-  import { ListeningParameter } from '../../../../shared/interfaces/response';
-import { CommonService } from '../../../../shared/services/common-service';
 
 @Component({
   selector: 'course-sideber',
@@ -13,7 +8,8 @@ import { CommonService } from '../../../../shared/services/common-service';
 })
 export class CourseSideberComponent {
   isNightMode = false;
-  @Input() topics:any;
+  @Input() topics:any[];
+  @Output() topicSelect = new EventEmitter<any>();
   constructor(private dataService: CustomizeService) {}
 
   ngOnInit(): void {
@@ -23,5 +19,10 @@ export class CourseSideberComponent {
     this.isNightMode = res;
     console.log(this.isNightMode);
     });
+  }
+
+  byTopicSelect(topicId:number){
+    debugger
+     this.topicSelect.emit(topicId);
   }
 }
