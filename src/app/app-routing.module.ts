@@ -41,7 +41,7 @@ const routes: Routes = [
     path:'threads',loadChildren:()=>import('./pages/threads/threads.module').then((m)=>m.ThreadsModule)
   },
   {
-    path:'course-details',loadChildren:()=>import('./pages/course-details/course-details.module').then((m)=>m.CourseDetailsModule)
+    path: 'course-details/:id',loadChildren:()=>import('./pages/course-details/course-details.module').then((m)=>m.CourseDetailsModule)
   },
   {
     path:'single-thread',loadChildren:()=>import('./pages/single-thread/single-thread.module').then((m)=>m.SingleThreadModule)

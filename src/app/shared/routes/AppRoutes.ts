@@ -1,6 +1,6 @@
 export let AppRoutes = {
-  Company: {
-    AddCompany: '/settings/company/create',
+  Course: {
+    CourseDeatils: '/course-details',
     CompanyList: '/settings/company/list'
   },
   Account: {

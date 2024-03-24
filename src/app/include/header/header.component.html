@@ -83,8 +83,9 @@
                         <div class="full_men_topics_sections {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                             <div class="wrap_full_men_topics_sections">
                                 <owl-carousel-o [options]="customOptions">
-                                    <ng-template carouselSlide class="menu-item" *ngFor="let item of courseList"><a routerLink="threads/my-threads"  routerLinkActive="actives" class="topic_link">{{item.title}}</a></ng-template>
-
+                                    <ng-template carouselSlide class="menu-item" *ngFor="let item of courseList">
+                                        <a [routerLink]="[commonService.appRoutes.Course.CourseDeatils, item.id]" routerLinkActive="active" class="topic_link">{{item.title}}</a>
+                                    </ng-template>                                    
                                 </owl-carousel-o>
 
                             </div>

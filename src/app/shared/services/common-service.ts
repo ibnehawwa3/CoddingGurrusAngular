@@ -72,7 +72,7 @@ export class CommonService {
           });
   });
   }
-
+ nhy v 
   setUserInformation(userName: string, themeType: string, IsSuperUser: boolean) {
     localStorage.setItem('userName', userName)
     localStorage.setItem('themeType', themeType)
@@ -116,10 +116,8 @@ export class CommonService {
 
   public Add<T>(apiUrl: string, data: any, navigateUrl?: string | null, navigateParams?: any, messageKey?: string | null, saveMsg = false, pageUrl = ""): ApiResponse<T> {
     this.spinnerService.show();
-    debugger
-   this.httpService.post<ApiResponse<T>>(apiUrl, data).subscribe(response => {
+    this.httpService.post<ApiResponse<T>>(apiUrl, data).subscribe(response => {
       if (response.data) {
-debugger
         if (response.success == true) {
           this.toasterService.success("", "Date has been saved sucssesfully");
           this.spinnerService.hide();

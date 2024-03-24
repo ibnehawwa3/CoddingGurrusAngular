@@ -27,6 +27,9 @@ export class HeaderComponent {
     this.toggleNightMode();
     this.commonService.Get<any>(this.commonService.apiEndPoints.CourseListForSlider + `?take=${10}&skip=${1}`)
    .then(response => {
+    console.log("call")
+    console.log(response.data)
+
 this.courseList = response.data;
 })
 .catch(error => {

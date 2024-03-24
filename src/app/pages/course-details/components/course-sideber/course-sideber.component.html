@@ -16,13 +16,13 @@
         </div>
         <div class="side_ber_menu_options_list   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
             <div class="side_ber_inner_menus_list   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                <ul>
+                <ul *ngFor="let topic of topics">
                     <li>
                         <a href="" class="active   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                        Data Structures Basics
+                        {{topic.title}}
                       </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="">
                         Array Data Structure
                       </a>
@@ -47,7 +47,7 @@
                     </li>
                     <li>
                         <a href="">Matrix Data Structure</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

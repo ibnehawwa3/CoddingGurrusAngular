@@ -17,17 +17,17 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="browse_topic_main  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                            <div class="browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <div class="browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}" *ngFor="let browseTopic of browseTopics">
                                 <div class="inner_browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                     <div class="card_img  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                         <img src="../../../../../assets/img/Angular.png" alt="">
                                     </div>
                                     <div class="card_content  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                                        <p>Angular</p>
+                                         <p>{{browseTopic.title}}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <!-- <div class="browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                 <div class="inner_browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                     <div class="card_img  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                         <img src="../../../../../assets/img/python.png" alt="">
@@ -147,8 +147,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                                <div class="inner_browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
+                            <div class="browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}"> -->
+                                <!-- <div class="inner_browse_topic_card  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                     <div class="card_img  {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                                         <img src="../../../../../assets/img/Angular.png" alt="">
                                     </div>
@@ -156,7 +156,7 @@
                                         <p>Angular</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="view_all">
                             <button class="v_all_btn   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
