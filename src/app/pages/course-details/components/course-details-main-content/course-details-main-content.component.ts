@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CustomizeService } from '../../../../customize/customize.service';
 import { ClipboardService } from 'ngx-clipboard';
 interface Item {
@@ -14,6 +14,8 @@ interface Item {
 
 export class CourseDetailsMainContentComponent {
   isNightMode = false;
+  @Input() contents: any;
+
   constructor(private dataService: CustomizeService,private _clipboardService: ClipboardService) {
 
   }
@@ -23,6 +25,10 @@ export class CourseDetailsMainContentComponent {
   //   alert(storedNightMode )
   // }
   ngOnInit(): void {
+    debugger
+    console.log("call child")
+
+    console.log(this.contents)
     this.dataService.currentMessage.subscribe((res) => {
       this.isNightMode = res;
       console.log(this.isNightMode)

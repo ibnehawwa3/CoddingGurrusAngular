@@ -12,7 +12,9 @@ import { CommonService } from '../../../shared/services/common-service';
 export class CourseDetailsComponent {
   isNightMode = false;
   courseId :any;
-  public topics:any[];
+  public topics:any;
+  public contents:any;
+
   constructor(private dataService: CustomizeService,private route: ActivatedRoute,public commonService:CommonService) {
 
   }
@@ -48,11 +50,11 @@ export class CourseDetailsComponent {
   }
 
   populateContent(topicId:any){
-    debugger
     this.commonService.Get<any>(this.commonService.apiEndPoints.ContentByCourse + `?topicId=${topicId}`)
     .then(response => {
+      console.log(response.data);
         if(response.data && response.data.length > 0)
-           this.topics=response.data[0].topics;
+           this.contents=response.data;
         else
         this.topics=[];
     })
