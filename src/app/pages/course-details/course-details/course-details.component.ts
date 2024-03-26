@@ -13,10 +13,9 @@ export class CourseDetailsComponent {
   isNightMode = false;
   courseId :any;
   topiciddefault :any;
-
   public topics:any;
   public contents:any;
-
+ public contentheader:any;
   constructor(private dataService: CustomizeService,private route: ActivatedRoute,public commonService:CommonService) {
 
   }
@@ -63,12 +62,13 @@ export class CourseDetailsComponent {
     this.commonService.Get<any>(this.commonService.apiEndPoints.ContentByCourse + `?topicId=${topicId}`)
     .then(response => {
       debugger
-      console.log(response.data);
-      
         if(response.data)
+        {
            this.contents=response.data;
+           this.contentheader=response.data;
+        }
         else
-        this.topics=[];
+        this.contents={} as any;
     })
     .catch(error => {
     });

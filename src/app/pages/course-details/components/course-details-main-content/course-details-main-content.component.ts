@@ -25,6 +25,8 @@ export class CourseDetailsMainContentComponent {
   //   alert(storedNightMode )
   // }
   ngOnInit(): void {
+    debugger
+   console.log(this.contents);
     this.dataService.currentMessage.subscribe((res) => {
       this.isNightMode = res;
       console.log(this.isNightMode)

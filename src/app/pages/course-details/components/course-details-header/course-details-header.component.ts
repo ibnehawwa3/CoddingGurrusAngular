@@ -8,7 +8,8 @@ import { CustomizeService } from '../../../../customize/customize.service';
 })
 export class CourseDetailsHeaderComponent {
   isNightMode = false;
-  @Input() topics: any[];
+  @Input() contentheader: any;
+
 
   constructor(private dataService: CustomizeService) {
 
@@ -19,6 +20,8 @@ export class CourseDetailsHeaderComponent {
   //   alert(storedNightMode )
   // }
   ngOnInit(): void {
+    debugger
+    console.log(this.contentheader)
     this.dataService.currentMessage.subscribe((res) => {
       this.isNightMode = res;
       console.log(this.isNightMode)

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CustomizeService } from '../../../../customize/customize.service';
 
 @Component({
@@ -17,6 +17,7 @@ export class CourseRelatedHeaderComponent {
   //   alert(storedNightMode )
   // }
   ngOnInit(): void {
+   
     this.dataService.currentMessage.subscribe((res) => {
       this.isNightMode = res;
       console.log(this.isNightMode)

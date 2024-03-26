@@ -1,8 +1,8 @@
 <div class="artical_section_wrapers   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
     <div class="inner_artical_wraper   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
         <div class="artical_section_column   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-            <h2 *ngIf="contents!=null">{{contents.content.title}}</h2>
-            <p *ngIf="contents!=null">{{contents.content.text}}</p>
+            <h2 *ngIf="contents.content!=null">{{contents.content.title}}</h2>
+            <p *ngIf="contents.content!=null">{{contents.content.text}}</p>
         </div>
         <div class="tag_lines   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
             <h4>“The term DSA stands for Data Structures and Algorithms, in the context of Computer Science.”</h4>
