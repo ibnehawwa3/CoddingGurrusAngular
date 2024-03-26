@@ -9,7 +9,8 @@
                 </div>
                 <div class="col-xl-9">
                     <div class="main_header_artical_sections   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                        <course-details-header [topics]="topics"></course-details-header>
+
+                        <course-details-header [topics]="topics" *ngIf="topiciddefault!=null"></course-details-header>
                     </div>
                     <div class="artical_details_bodys   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                         <div class="inner_article_bodys   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
@@ -17,7 +18,7 @@
                                 <div class="row">
                                     <div class="col-xl-9">
                                         <div class="section_optionss   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
-                                            <course-details-main-content [contents]="contents"></course-details-main-content>
+                                            <course-details-main-content [contents]="contents" *ngIf="topiciddefault!=null"></course-details-main-content>
                                         </div>
                                     </div>
                                     <div class="col-xl-3">

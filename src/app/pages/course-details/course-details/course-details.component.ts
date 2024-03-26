@@ -12,6 +12,8 @@ import { CommonService } from '../../../shared/services/common-service';
 export class CourseDetailsComponent {
   isNightMode = false;
   courseId :any;
+  topiciddefault :any;
+
   public topics:any;
   public contents:any;
 
@@ -41,7 +43,14 @@ export class CourseDetailsComponent {
     this.commonService.Get<any>(this.commonService.apiEndPoints.TopicList + `?courseId=${this.courseId}`)
     .then(response => {
         if(response.data && response.data.length > 0)
+        {
            this.topics=response.data[0].topics;
+           if(response.data[0].topics.length>0)
+           {
+            this.topiciddefault=response.data[0].topics[0].id;
+            this.populateContent(this.topiciddefault)
+           }
+        }
         else
         this.topics=[];
     })
@@ -50,10 +59,13 @@ export class CourseDetailsComponent {
   }
 
   populateContent(topicId:any){
+    
     this.commonService.Get<any>(this.commonService.apiEndPoints.ContentByCourse + `?topicId=${topicId}`)
     .then(response => {
+      debugger
       console.log(response.data);
-        if(response.data && response.data.length > 0)
+      
+        if(response.data)
            this.contents=response.data;
         else
         this.topics=[];
