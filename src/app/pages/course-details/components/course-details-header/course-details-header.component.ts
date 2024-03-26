@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CustomizeService } from '../../../../customize/customize.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { CustomizeService } from '../../../../customize/customize.service';
 })
 export class CourseDetailsHeaderComponent {
   isNightMode = false;
+  @Input() topics: any[];
+
   constructor(private dataService: CustomizeService) {
 
   }

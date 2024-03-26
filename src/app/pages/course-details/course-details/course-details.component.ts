@@ -12,8 +12,16 @@ import { CommonService } from '../../../shared/services/common-service';
 export class CourseDetailsComponent {
   isNightMode = false;
   courseId :any;
+<<<<<<< HEAD
   public topics:any[];
   content:any;
+=======
+  topiciddefault :any;
+
+  public topics:any;
+  public contents:any;
+
+>>>>>>> d1fd868784ec56655737bb98c8286092dec26be2
   constructor(private dataService: CustomizeService,private route: ActivatedRoute,public commonService:CommonService) {
 
   }
@@ -41,7 +49,14 @@ export class CourseDetailsComponent {
     .then(response => {
       debugger
         if(response.data && response.data.length > 0)
+        {
            this.topics=response.data[0].topics;
+           if(response.data[0].topics.length>0)
+           {
+            this.topiciddefault=response.data[0].topics[0].id;
+            this.populateContent(this.topiciddefault)
+           }
+        }
         else
         this.topics=[];
     })
@@ -50,11 +65,19 @@ export class CourseDetailsComponent {
   }
 
   populateContent(topicId:any){
-    debugger
+    
     this.commonService.Get<any>(this.commonService.apiEndPoints.ContentByCourse + `?topicId=${topicId}`)
     .then(response => {
+<<<<<<< HEAD
         if(response.data && response.data.length > 0)
            this.content=response;
+=======
+      debugger
+      console.log(response.data);
+      
+        if(response.data)
+           this.contents=response.data;
+>>>>>>> d1fd868784ec56655737bb98c8286092dec26be2
         else
         this.topics=[];
     })

@@ -27,7 +27,7 @@ export class BrowseTopicComponent {
     this.commonService._defaultSkip++;
     this.commonService.Get<any>(this.commonService.apiEndPoints.GetBrowseTopics + `?take=${this.commonService._defaultTake}&skip=${this.commonService._defaultSkip}&selilizationNeeded=${false}`)
     .then(response => {
-      debugger
+      
      this.browseTopics.push(...response.data)
     })
     .catch(error => {

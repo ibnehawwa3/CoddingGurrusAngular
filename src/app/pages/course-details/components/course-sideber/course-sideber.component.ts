@@ -14,7 +14,7 @@ export class CourseSideberComponent {
 
   ngOnInit(): void {
     // Subscribe to night mode changes
-    debugger
+    
     this.dataService.currentMessage.subscribe((res) => {
     this.isNightMode = res;
     console.log(this.isNightMode);
@@ -22,7 +22,7 @@ export class CourseSideberComponent {
   }
 
   byTopicSelect(topicId:number){
-    debugger
+    
      this.topicSelect.emit(topicId);
   }
 }
