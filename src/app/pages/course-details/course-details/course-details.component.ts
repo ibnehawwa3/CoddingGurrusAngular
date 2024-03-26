@@ -13,6 +13,7 @@ export class CourseDetailsComponent {
   isNightMode = false;
   courseId :any;
   public topics:any[];
+  content:any;
   constructor(private dataService: CustomizeService,private route: ActivatedRoute,public commonService:CommonService) {
 
   }
@@ -22,7 +23,7 @@ export class CourseDetailsComponent {
   //   alert(storedNightMode )
   // }
   ngOnInit(): void {
-
+    debugger
     this.route.paramMap.subscribe(params => {
       this.courseId = params.get('id');
       this.papolateTopics();
@@ -38,6 +39,7 @@ export class CourseDetailsComponent {
   {
     this.commonService.Get<any>(this.commonService.apiEndPoints.TopicList + `?courseId=${this.courseId}`)
     .then(response => {
+      debugger
         if(response.data && response.data.length > 0)
            this.topics=response.data[0].topics;
         else
@@ -52,7 +54,7 @@ export class CourseDetailsComponent {
     this.commonService.Get<any>(this.commonService.apiEndPoints.ContentByCourse + `?topicId=${topicId}`)
     .then(response => {
         if(response.data && response.data.length > 0)
-           this.topics=response.data[0].topics;
+           this.content=response;
         else
         this.topics=[];
     })

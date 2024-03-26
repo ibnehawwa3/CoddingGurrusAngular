@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CustomizeService } from '../../../../customize/customize.service';
 import { ClipboardService } from 'ngx-clipboard';
 interface Item {
@@ -14,6 +14,7 @@ interface Item {
 
 export class CourseDetailsMainContentComponent {
   isNightMode = false;
+  @Input() content:any;
   constructor(private dataService: CustomizeService,private _clipboardService: ClipboardService) {
 
   }

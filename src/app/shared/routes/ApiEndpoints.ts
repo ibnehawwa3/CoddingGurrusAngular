@@ -5,5 +5,5 @@ export let ApiEndPoints = {
   CourseListForSlider: 'Widgets/course-list-for-slider',
   TopicList: 'CourseContent/topics-by-course-Id',
   ContentByCourse: 'CourseContent/topic-content-by-id',
-  GetBrowseTopics:""
+  GetBrowseTopics:"Widgets/browse-topics"
 }
