@@ -18,7 +18,7 @@
             <div class="side_ber_inner_menus_list   {{ isNightMode ? 'night_mode' : 'day_mode' }}">
                 <ul *ngFor="let topic of topics; let i = index">
                     <li>
-                        <a  [class]="i === 0 ? 'active' : ''" [ngClass]="isNightMode ? 'night_mode' : 'day_mode'" (click)="byTopicSelect(topic.id)">
+                        <a  [class.active]="i === selectedTopicIndex" [ngClass]="isNightMode ? 'night_mode' : 'day_mode'" (click)="byTopicSelect(topic.id,i)">
                         {{topic.title}}
                       </a>
                     </li>
