@@ -14,12 +14,9 @@ interface Item {
 
 export class CourseDetailsMainContentComponent {
   isNightMode = false;
-<<<<<<< HEAD
   @Input() content:any;
-=======
   @Input() contents: any;
 
->>>>>>> d1fd868784ec56655737bb98c8286092dec26be2
   constructor(private dataService: CustomizeService,private _clipboardService: ClipboardService) {
 
   }

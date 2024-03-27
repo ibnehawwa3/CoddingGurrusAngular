@@ -3,6 +3,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CustomizeService } from '../../customize/customize.service';
 import { CommonService } from '../../shared/services/common-service';
 import { ListeningParameter } from '../../shared/interfaces/response';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,7 +11,7 @@ import { ListeningParameter } from '../../shared/interfaces/response';
 })
 export class HeaderComponent {
   @Output() nightModeChanged = new EventEmitter<boolean>();
-  constructor(private dataService: CustomizeService, public commonService: CommonService) {
+  constructor(private dataService: CustomizeService, public commonService: CommonService,private router: Router) {
     const storedNightMode = localStorage.getItem('nightMode');
     this.isNightMode = storedNightMode ? JSON.parse(storedNightMode) : false;
   }
@@ -27,13 +28,11 @@ export class HeaderComponent {
     this.toggleNightMode();
     this.commonService.Get<any>(this.commonService.apiEndPoints.CourseListForSlider + `?take=${10}&skip=${1}`)
    .then(response => {
-debugger
-this.courseList = response.data;
-})
-.catch(error => {
-console.error(error);
-// Handle error gracefully
-});
+      this.courseList = response.data;
+    })
+    .catch(error => {
+       console.error(error);
+    });
   }
 
   // id:any = 'grabbedblocks';
