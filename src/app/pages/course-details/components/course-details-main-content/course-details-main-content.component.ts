@@ -24,6 +24,8 @@ export class CourseDetailsMainContentComponent {
   //   this.isNightMode = storedNightMode ? JSON.parse(storedNightMode) : false;
   //   alert(storedNightMode )
   // }
+
+  
   ngOnInit(): void {
     debugger
    console.log(this.contents);
